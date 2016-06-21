@@ -1,22 +1,79 @@
 {
-  "name": "react-native-gifted-messenger",
-  "version": "0.1.5",
-  "description": "Chat UI for iOS and Android React-Native apps",
-  "main": "GiftedMessenger.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      {
+        "hosted": {
+          "directUrl": "https://raw.githubusercontent.com/mohamed-mellouki/react-native-gifted-messenger/master/package.json",
+          "gitUrl": "git://github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+          "httpsUrl": "git+https://github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+          "shortcut": "github:mohamed-mellouki/react-native-gifted-messenger",
+          "ssh": "git@github.com:mohamed-mellouki/react-native-gifted-messenger.git",
+          "sshUrl": "git+ssh://git@github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+          "type": "github"
+        },
+        "name": "react-native-gifted-messenger",
+        "raw": "react-native-gifted-messenger@github:mohamed-mellouki/react-native-gifted-messenger",
+        "rawSpec": "github:mohamed-mellouki/react-native-gifted-messenger",
+        "scope": null,
+        "spec": "github:mohamed-mellouki/react-native-gifted-messenger",
+        "type": "hosted"
+      },
+      "/Users/osedea1/Documents/wip/womenInMind/WomenInMind"
+    ]
+  ],
+  "_from": "mohamed-mellouki/react-native-gifted-messenger",
+  "_id": "react-native-gifted-messenger@0.1.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-gifted-messenger",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/mohamed-mellouki/react-native-gifted-messenger/master/package.json",
+      "gitUrl": "git://github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+      "httpsUrl": "git+https://github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+      "shortcut": "github:mohamed-mellouki/react-native-gifted-messenger",
+      "ssh": "git@github.com:mohamed-mellouki/react-native-gifted-messenger.git",
+      "sshUrl": "git+ssh://git@github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+      "type": "github"
+    },
+    "name": "react-native-gifted-messenger",
+    "raw": "react-native-gifted-messenger@github:mohamed-mellouki/react-native-gifted-messenger",
+    "rawSpec": "github:mohamed-mellouki/react-native-gifted-messenger",
+    "scope": null,
+    "spec": "github:mohamed-mellouki/react-native-gifted-messenger",
+    "type": "hosted"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FaridSafi/react-native-gifted-messenger.git"
-  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git://github.com/mohamed-mellouki/react-native-gifted-messenger.git#001b6787e517fe3463ea6fc207582a41d714d47f",
+  "_shasum": "506c253ad5266cb9a38b96fca518ca437ecac90c",
+  "_shrinkwrap": null,
+  "_spec": "react-native-gifted-messenger@github:mohamed-mellouki/react-native-gifted-messenger",
+  "_where": "/Users/osedea1/Documents/wip/womenInMind/WomenInMind",
   "author": {
     "name": "Farid from Safi"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FaridSafi/react-native-gifted-messenger/issues"
   },
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "moment": "^2.10.6",
+    "react-native-button": "^1.5.0",
+    "react-native-gifted-spinner": "^0.0.4",
+    "react-native-parsed-text": "0.0.12"
+  },
+  "description": "Chat UI for iOS and Android React-Native apps",
+  "devDependencies": {
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0"
+  },
+  "gitHead": "001b6787e517fe3463ea6fc207582a41d714d47f",
+  "homepage": "https://github.com/FaridSafi/react-native-gifted-messenger#readme",
   "keywords": [
     "chat",
     "message",
@@ -27,18 +84,18 @@
     "ios",
     "android"
   ],
-  "homepage": "https://github.com/FaridSafi/react-native-gifted-messenger#readme",
-  "dependencies": {
-    "deep-equal": "^1.0.1",
-    "moment": "^2.10.6",
-    "react-native-button": "^1.5.0",
-    "react-native-gifted-spinner": "^0.0.4",
-    "react-native-parsed-text": "0.0.12"
+  "license": "MIT",
+  "main": "GiftedMessenger.js",
+  "name": "react-native-gifted-messenger",
+  "optionalDependencies": {},
+  "readme": "# Gifted Messenger\nReady-to-use chat interface for iOS and Android React-Native apps\n\n![](https://raw.githubusercontent.com/FaridSafi/react-native-gifted-messenger/master/screenshots/capture.gif)\n![](https://raw.githubusercontent.com/FaridSafi/react-native-gifted-messenger/master/screenshots/messenger-1.png)\n![](https://raw.githubusercontent.com/FaridSafi/react-native-gifted-messenger/master/screenshots/messenger-2.png)\n\n\n### Changelog\n#### 0.1.0 - Breaking changes for a better Gifted Messenger\n- Breaking: `appendMessage`, `prependMessage` are now deprecated, messages list are now managed only using states - See [example](https://github.com/FaridSafi/react-native-gifted-messenger/blob/master/GiftedMessengerExample/GiftedMessengerContainer.js)\n- Breaking: All messages should now contain a `uniqueId` property\n- Breaking: `setMessageStatus` is now deprecated, use the message attribute `status` instead\n- Breaking: New prop `isLoadingEarlierMessages` to display a loader when loading earlier messages\n- New prop `typingMessage` for displaying 'User is typing a message...'\n- New prop `leftControlBar` - PR [@gnl](https://github.com/gnl)\n- Android improvements\n- `react-native-parsed-text` has been re-implemented\n- ESLint implementation - PR [@sethx](https://github.com/sethx)\n- ES6 & Example refactoring\n- Fixing scroll when loading earlier messages\n- Various fixes and improvements by [@swapkats](https://github.com/swapkats), [@ianlin](https://github.com/ianlin), [@zxcpoiu](https://github.com/zxcpoiu), [@cnjon](https://github.com/cnjon)\n- Special thanks to [@yogiben](https://github.com/yogiben), [@koppelaar](https://github.com/koppelaar) & [@sethx](https://github.com/sethx) for their contributions\n\n#### 0.1.2\n- New prop: `dateLocale` - @gnl\n- New prop: `renderCustomDate` - @pcxiong\n- `center` position for messages (eg. for server messages) - @gnl\n- Method `setTextInputValue` - @wenkesj\n- Replace `lodash` with `deep-equal` - @austinkelleher\n\n#### 0.1.3\n- Fix initial `scrollToBottom` issue\n- Allow custom view for images - @aksonov\n\n\n### Example\nSee [GiftedMessengerExample/GiftedMessengerContainer.js](https://raw.githubusercontent.com/FaridSafi/react-native-gifted-messenger/master/GiftedMessengerExample/GiftedMessengerContainer.js)\n\n### Installation\n```npm install react-native-gifted-messenger --save```\n\n### Props\n\n\n| Props name                    | Type     | Description                                                                | Platform | Default                          |\n| ----------------------------- | -------- | -------------------------------------------------------------------------- | -------- | -------------------------------- |\n| autoFocus                     | Boolean  | TextInput auto focus                                                       | Both     | true                             |\n| blurOnSubmit                  | Boolean  | Dismiss the keyboard when clicking on submit                               | Both     | false                            |\n| dateLocale                    | String   | The moment.js locale used for displaying timestamps (see Locale.js)        | Both     | ''                               |\n| displayNames                  | Boolean  | Display or not the name of the interlocutor(s)                             | Both     | true                             |\n| displayNamesInsideBubble      | Boolean  | Display the name of the interlocutor(s) inside the bubble                  | Both     | false                            |\n| forceRenderImage              | Boolean  | Always render the users images (avatar)                                    | Both     | false                            |\n| handleEmailPress              | Function | Called when a parsed email is pressed                                      | iOS      | (email) => {}                    |\n| handlePhonePress              | Function | Called when a parsed phone number is pressed                               | iOS      | (phone) => {}                    |\n| handleSend                    | Function | Called when a message is Sent                                              | Both     | (message, rowID) => {}           |\n| handleUrlPress                | Function | Called when a parsed url is pressed                                        | iOS      | (url) => {}                      |\n| hideTextInput                 | Boolean  | Hide or not the text input                                                 | Both     | false                            |\n| isLoadingEarlierMessages      | Boolean  | Display a loader when loading earlier messages                             | Both     | false                            |\n| keyboardDismissMode           | String   | Method to dismiss the keyboard when dragging (none, interactive, on-drag)  | Both     | interactive                      |\n| keyboardShouldPersistTaps     | Boolean  | When false, tapping the scrollview dismisses the keyboard.                 | Both     | true                             |\n| leftControlBar                | Element  | Optional control element displayed left of the TextInput                   | Both     | null                             |\n| loadEarlierMessagesButton     | Boolean  | Display or not the button to load earlier message                          | Both     | false                            |\n| loadEarlierMessagesButtonText | String   | Label of the 'Load Earlier Messages' button                                | Both     | 'Load earlier messages'          |\n| maxHeight                     | Integer  | Max height of the component                                                | Both     | Dimensions.get('window').height  |\n| messages                      | Array    | List of messages to display                                                | Both     | []                               |\n| onChangeText                  | Function | Called on every keypress in the TextInput                                  | Both     | (text) => {}                     |\n| onCustomSend                  | Function | If you want to implement a progress bar. See PR #16                        | Both     | (message) => {}                  |\n| onErrorButtonPress            | Function | Called when the re-send button is pressed                                  | Both     | (message, rowID) => {}           |\n| onImagePress                  | Function | Called when the image of a message is pressed                              | Both     | (rowData, rowID) => {}           |\n| onLoadEarlierMessages         | Function | Called when 'Load Earlier Message' button is pressed                       | Both     | (oldestMessage, callback) => {}  |\n| onMessageLongPress            | Function | Called when doing long press on a message                                  | Both     | (rowData) => {}                       |\n| parseText                     | Boolean  | If the text has to be parsed with taskrabbit/react-native-parsed-text      | iOS      | true                             |\n| placeholder                   | String   | TextInput placeholder                                                      | Both     | 'Type a message...'              |\n| placeholderTextColor          | String   | TextInput text color placeholder                                           | Both     | '#ccc'                           |\n| renderCustomText              | Function | Implement your own text rendering                                          | Both     | (rowData) => {}                  |\n| renderTextInput               | Function | Implement your own text input rendering                                    | Both     | (props) => {}                    |\n| renderCustomDate              | Function | Implement your own date rendering                                          | Both     | (rowData, previousData) => {}                  |\n| scrollAnimated                | Boolean  | do animation when scrolling                                                | Both     | true                             |\n| sendButtonText                | String   | 'Send' button label                                                        | Both     | 'Send'                           |\n| senderImage                   | Object   | Image of the sender                                                        | Both     | null                             |\n| senderName                    | String   | Name of the sender of the messages                                         | Both     | 'Sender'                         |\n| styles                        | Function | Styles of children components - See GiftedMessenger.js/componentWillMount  | Both     | {}                               |\n| submitOnReturn                | Boolean  | Send message when clicking on submit                                       | Both     | false                            |\n| typingMessage                 | String   | Display a text at the bottom of the list. Eg: 'User is typing a message'   | Both     | ''                               |\n\n\n### Message object\n\n```js\nvar message = {\n  uniqueId: 'XXXXX' // each messages should have an unique identifer - mandatory\n  text: 'Message content',\n  name: \"Sender's name\",\n  image: {uri: 'https://facebook.github.io/react/img/logo_og.png'},\n  position: 'left', // left for received messages, right for sent messages, center for server messages\n  date: new Date(),\n  view: null, // A custom Bubble view - the view will receive the message attributes as props\n  imageView: null, // Returns custom Image view to display image (avatar) for the message\n  status: 'Seen', // if status is 'ErrorButton', a re-send button will be displayed\n  // ...any attributes you want\n};\n```\n\n### Android installation\n- Add `windowSoftInputMode` in your Android Manifest `android/app/src/main/AndroidManifest.xml`\n```\n<!-- ... -->\n  android:label=\"@string/app_name\"\n  android:windowSoftInputMode=\"adjustResize\"\n  android:configChanges=\"keyboard|keyboardHidden|orientation|screenSize\">\n<!-- ... -->\n```\n- Calculate the maxHeight prop using [react-native-extra-dimensions-android](https://github.com/jaysoo/react-native-extra-dimensions-android)\n```js\n  <GiftedMessenger\n    // ...\n    maxHeight={Dimensions.get('window').height - Navigator.NavigationBar.Styles.General.NavBarHeight - ExtraDimensions.get('STATUS_BAR_HEIGHT')}\n    // ...\n  />\n```\n\n### Known issues\n- Android: When updating a message status, scroll to bottom is not triggered - Related to https://github.com/facebook/react-native/issues/5688\n\n\n### License\n\n[MIT](LICENSE)\n\n\nFeel free to ask me questions on Twitter [@FaridSafi](https://www.twitter.com/FaridSafi) !\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaridSafi/react-native-gifted-messenger.git"
   },
-  "devDependencies": {
-    "eslint": "^2.7.0",
-    "eslint-config-airbnb": "^7.0.0",
-    "eslint-plugin-react": "^4.3.0",
-    "eslint-plugin-jsx-a11y": "^0.6.2"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.5"
 }

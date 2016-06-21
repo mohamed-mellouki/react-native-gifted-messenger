@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import {
+    Text,
+    View,
+    StyleSheet,
+    Image,
+    Dimensions,
+} from 'react-native';
 
 import ParsedText from 'react-native-parsed-text';
 
@@ -10,6 +16,11 @@ const styles = StyleSheet.create({
     paddingRight: 14,
     paddingBottom: 10,
     paddingTop: 8,
+  },
+  image: {
+    height: 250,
+    width: 250,
+    flex: 1
   },
   text: {
     color: '#000',
@@ -106,15 +117,41 @@ export default class Bubble extends React.Component {
     }
 
     return (
-      <View style={[styles.bubble,
-        (this.props.position === 'left' ? styles.bubbleLeft : this.props.position === 'right' ? styles.bubbleRight : styles.bubbleCenter),
-        (this.props.status === 'ErrorButton' ? styles.bubbleError : null),
-        flexStyle]}
-      >
-        {this.props.name}
-        {this.renderText(this.props.text, this.props.position)}
-      </View>
-  );
+        <View>
+            {
+                (this.props.hasOwnProperty('type') && this.props.type === 'image')
+                ?
+                (
+                    <View style={{
+                        width: Dimensions.get('window').width * 0.66,
+                        height: Dimensions.get('window').height * 0.41,
+                    }}>
+                      {this.props.name}
+                      <Image
+                            source={
+                                {uri: this.props.text}
+                            }
+                            style={{
+                                width: Dimensions.get('window').width * 0.65,
+                                height: Dimensions.get('window').height * 0.4,
+                                marginTop: 5,
+                            }}
+                      />
+                    </View>
+                )
+                : (
+                  <View style={[styles.bubble,
+                    (this.props.position === 'left' ? styles.bubbleLeft : this.props.position === 'right' ? styles.bubbleRight : styles.bubbleCenter),
+                    (this.props.status === 'ErrorButton' ? styles.bubbleError : null),
+                    flexStyle]}
+                  >
+                    {this.props.name}
+                    {this.renderText(this.props.text, this.props.position)}
+                  </View>
+                )
+            }
+        </View>
+    )
   }
 }
 
