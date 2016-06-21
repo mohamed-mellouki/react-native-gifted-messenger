@@ -167,19 +167,29 @@ export default class Message extends Component {
             justifyContent: position === 'left' ? 'flex-start' : position === 'right' ? 'flex-end' : 'center',
           }]}
         >
-          {position === 'left' ? this.renderImage(rowData, diffMessage, forceRenderImage, onImagePress) : null}
+          {
+              position === 'left'
+              ? (
+                    <Image
+                        source={rowData.image}
+                        style={[styles.imagePosition, styles.image, (rowData.position === 'left' ? styles.imageLeft : styles.imageRight)]}
+                    />
+                )
+              : null
+          }
           {position === 'right' ? this.renderErrorButton(rowData, onErrorButtonPress) : null}
-          <RowView
-            {...rowData}
-            renderCustomText={this.props.renderCustomText}
-            styles={styles}
-            name={position === 'left' && this.props.displayNamesInsideBubble ? this.renderName(rowData.name, displayNames, diffMessage) : null}
 
-            parseText={this.props.parseText}
-            handlePhonePress={this.props.handlePhonePress}
-            handleUrlPress={this.props.handleUrlPress}
-            handleEmailPress={this.props.handleEmailPress}
-          />
+            <RowView
+              {...rowData}
+              renderCustomText={this.props.renderCustomText}
+              styles={styles}
+              name={position === 'left' && this.props.displayNamesInsideBubble ? this.renderName(rowData.name, displayNames, diffMessage) : null}
+              parseText={this.props.parseText}
+              handlePhonePress={this.props.handlePhonePress}
+              handleUrlPress={this.props.handleUrlPress}
+              handleEmailPress={this.props.handleEmailPress}
+            />
+
           {rowData.position === 'right' ? this.renderImage(rowData, diffMessage, forceRenderImage, onImagePress) : null}
         </View>
         {rowData.position === 'right' ? this.renderStatus(rowData.status) : null}

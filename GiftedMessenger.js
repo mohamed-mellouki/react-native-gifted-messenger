@@ -204,6 +204,7 @@ class GiftedMessenger extends Component {
       image: this.props.senderImage,
       position: 'right',
       date: new Date(),
+      type: 'text',
     };
     if (this.props.onCustomSend) {
       this.props.onCustomSend(message);
@@ -580,7 +581,6 @@ class GiftedMessenger extends Component {
             returnKeyType={this.props.submitOnReturn ? 'send' : 'default'}
             onSubmitEditing={this.props.submitOnReturn ? this.onSend : () => {}}
             enablesReturnKeyAutomatically={true}
-
             blurOnSubmit={this.props.blurOnSubmit}
           />
           <Button
