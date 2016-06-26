@@ -19,6 +19,26 @@
         "type": "hosted"
       },
       "/Users/osedea1/Documents/wip/womenInMind/WomenInMind"
+    ],
+    [
+      {
+        "hosted": {
+          "directUrl": "https://raw.githubusercontent.com/mohamed-mellouki/react-native-gifted-messenger/master/package.json",
+          "gitUrl": "git://github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+          "httpsUrl": "git+https://github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+          "shortcut": "github:mohamed-mellouki/react-native-gifted-messenger",
+          "ssh": "git@github.com:mohamed-mellouki/react-native-gifted-messenger.git",
+          "sshUrl": "git+ssh://git@github.com/mohamed-mellouki/react-native-gifted-messenger.git",
+          "type": "github"
+        },
+        "name": "react-native-gifted-messenger",
+        "raw": "react-native-gifted-messenger@github:mohamed-mellouki/react-native-gifted-messenger",
+        "rawSpec": "github:mohamed-mellouki/react-native-gifted-messenger",
+        "scope": null,
+        "spec": "github:mohamed-mellouki/react-native-gifted-messenger",
+        "type": "hosted"
+      },
+      "/Users/osedea1/Documents/wip/womenInMind/WomenInMind"
     ]
   ],
   "_from": "mohamed-mellouki/react-native-gifted-messenger",
@@ -47,8 +67,8 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git://github.com/mohamed-mellouki/react-native-gifted-messenger.git#001b6787e517fe3463ea6fc207582a41d714d47f",
-  "_shasum": "506c253ad5266cb9a38b96fca518ca437ecac90c",
+  "_resolved": "git://github.com/mohamed-mellouki/react-native-gifted-messenger.git#eacd77107e11ef87225744a8ad2721980bbf76fb",
+  "_shasum": "eaae68c00f2383b6d222b921ed9021ad8ef7a5cd",
   "_shrinkwrap": null,
   "_spec": "react-native-gifted-messenger@github:mohamed-mellouki/react-native-gifted-messenger",
   "_where": "/Users/osedea1/Documents/wip/womenInMind/WomenInMind",
