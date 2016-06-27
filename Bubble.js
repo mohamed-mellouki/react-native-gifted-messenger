@@ -16,11 +16,11 @@ const styles = StyleSheet.create({
     paddingRight: 14,
     paddingBottom: 10,
     paddingTop: 8,
+    flex: 1,
   },
   image: {
     height: 250,
     width: 250,
-    flex: 1
   },
   text: {
     color: '#000',
@@ -36,12 +36,10 @@ const styles = StyleSheet.create({
   bubbleLeft: {
     marginRight: 70,
     backgroundColor: '#e6e6eb',
-    alignSelf: 'flex-start',
   },
   bubbleRight: {
     marginLeft: 70,
     backgroundColor: '#007aff',
-    alignSelf: 'flex-end',
   },
   bubbleCenter: {
     backgroundColor: '#007aff',
@@ -99,59 +97,57 @@ export default class Bubble extends React.Component {
     }
 
     return (
-      <Text style={[styles.text, (position === 'left' ? styles.textLeft : position === 'right' ? styles.textRight : styles.textCenter)]}>
+      <Text style={[styles.text,
+          (position === 'left') ? styles.textLeft : position === 'right' ? styles.textRight : styles.textCenter)]}>
         {text}
       </Text>
     );
   }
 
-  render() {
-    const flexStyle = {};
-    const realLength = function(str) {
-      return str.replace(/[^\x00-\xff]/g, "**").length; // [^\x00-\xff] - Matching non double byte character
-    };
-    if (this.props.text) {
-      if (realLength(this.props.text) > 40) {
-        flexStyle.flex = 1;
+  getBubbleContent = () => {
+      if (this.props.hasOwnProperty('type') && this.props.type === 'image') {
+          return (
+              <View style={{
+                  width: Dimensions.get('window').width * 0.66,
+                  height: Dimensions.get('window').height * 0.41,
+              }}>
+                {this.props.name}
+                <Image
+                      source={
+                          {uri: this.props.text}
+                      }
+                      style={{
+                          width: Dimensions.get('window').width * 0.65,
+                          height: Dimensions.get('window').height * 0.4,
+                          marginTop: 5,
+                          alignSelf: 'flex-end',
+                      }}
+                />
+              </View>
+          );
+      } else {
+            return (
+              <View style={[(this.realLength(this.props.text) > 40 ) ? {flex: 1} : {}]}>
+                <View style={[styles.bubble,
+                  (this.props.position === 'left' ? styles.bubbleLeft : this.props.position === 'right' ? styles.bubbleRight : styles.bubbleCenter),
+                  (this.props.status === 'ErrorButton' ? styles.bubbleError : null),
+                  {}
+                  ]}
+                >
+                  {this.props.name}
+                  {this.renderText(this.props.text, this.props.position)}
+                </View>
+            </View>
+        );
       }
-    }
+  };
 
-    return (
-        <View>
-            {
-                (this.props.hasOwnProperty('type') && this.props.type === 'image')
-                ?
-                (
-                    <View style={{
-                        width: Dimensions.get('window').width * 0.66,
-                        height: Dimensions.get('window').height * 0.41,
-                    }}>
-                      {this.props.name}
-                      <Image
-                            source={
-                                {uri: this.props.text}
-                            }
-                            style={{
-                                width: Dimensions.get('window').width * 0.65,
-                                height: Dimensions.get('window').height * 0.4,
-                                marginTop: 5,
-                            }}
-                      />
-                    </View>
-                )
-                : (
-                  <View style={[styles.bubble,
-                    (this.props.position === 'left' ? styles.bubbleLeft : this.props.position === 'right' ? styles.bubbleRight : styles.bubbleCenter),
-                    (this.props.status === 'ErrorButton' ? styles.bubbleError : null),
-                    flexStyle]}
-                  >
-                    {this.props.name}
-                    {this.renderText(this.props.text, this.props.position)}
-                  </View>
-                )
-            }
-        </View>
-    )
+  realLength = (str) => {
+    return str.replace(/[^\x00-\xff]/g, "**").length; // [^\x00-\xff] - Matching non double byte character
+  };
+
+  render() {
+    return this.getBubbleContent();
   }
 }
 

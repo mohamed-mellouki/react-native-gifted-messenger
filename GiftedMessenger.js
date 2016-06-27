@@ -68,6 +68,7 @@ class GiftedMessenger extends Component {
       disabled: true,
       height: new Animated.Value(this.listViewMaxHeight),
       appearAnim: new Animated.Value(0),
+      textInputHeight: 0,
     };
   }
 
@@ -293,6 +294,13 @@ class GiftedMessenger extends Component {
       disabled: text.trim().length <= 0
     });
 
+    if (text === '') {
+        this.setState({
+          textInputHeight: 35,
+          height: this.listViewMaxHeight,
+        });
+    }
+
     this.props.onChangeText(text);
   }
 
@@ -366,7 +374,6 @@ class GiftedMessenger extends Component {
       }
     }
   }
-
 
   isLastMessageVisible() {
     return !!this._visibleRows.s1[this.getLastMessageUniqueId()];
@@ -513,10 +520,9 @@ class GiftedMessenger extends Component {
     return (
       <Animated.View
         style={{
-          height: this.state.height,
+          height: this.state.height ,
           justifyContent: 'flex-end',
         }}
-
       >
         <ListView
           ref="listView"
@@ -569,11 +575,12 @@ class GiftedMessenger extends Component {
     }
     if (this.props.hideTextInput === false) {
       return (
-        <View style={this.styles.textInputContainer}>
+        <View style={[this.styles.textInputContainer, {height: Math.max((Platform.OS === 'ios') ? 50 : 60, this.state.textInputHeight)}]}>
           {this.props.leftControlBar}
           <TextInput
-            style={this.styles.textInput}
+            style={[this.styles.textInput, {height: Math.max(35, this.state.textInputHeight)}]}
             placeholder={this.props.placeholder}
+            multiline={true}
             placeholderTextColor={this.props.placeholderTextColor}
             onChangeText={this.onChangeText}
             value={this.state.text}
