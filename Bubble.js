@@ -97,8 +97,16 @@ export default class Bubble extends React.Component {
     }
 
     return (
-      <Text style={[styles.text,
-          (position === 'left') ? styles.textLeft : position === 'right' ? styles.textRight : styles.textCenter)]}>
+      <Text
+          style={[
+              styles.text,
+              (position === 'left')
+                  ? styles.textLeft
+                  : (position === 'right')
+                      ? styles.textRight
+                      : styles.textCenter
+          ]}
+      >
         {text}
       </Text>
     );
