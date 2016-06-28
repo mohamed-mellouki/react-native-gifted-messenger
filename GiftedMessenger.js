@@ -35,6 +35,7 @@ class GiftedMessenger extends Component {
     this.onKeyboardWillHide = this.onKeyboardWillHide.bind(this);
     this.onKeyboardDidHide = this.onKeyboardDidHide.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onSend = this.onSend.bind(this);
 
     this._firstDisplay = true;
@@ -100,7 +101,7 @@ class GiftedMessenger extends Component {
         fontSize: 15,
       },
       sendButton: {
-        marginTop: 11,
+        marginTop: 10,
         marginLeft: 10,
       },
       date: {
@@ -223,10 +224,6 @@ class GiftedMessenger extends Component {
   }
 
   onKeyboardDidHide(e) {
-    if (Platform.OS === 'android') {
-      this.onKeyboardWillHide(e);
-    }
-
     // TODO test in android
     if (this.props.keyboardShouldPersistTaps === false) {
       if (this.isLastMessageVisible()) {
@@ -243,10 +240,6 @@ class GiftedMessenger extends Component {
   }
 
   onKeyboardDidShow(e) {
-    if (Platform.OS === 'android') {
-      this.onKeyboardWillShow(e);
-    }
-
     setTimeout(() => {
       this.scrollToBottom();
     }, (Platform.OS === 'android' ? 200 : 100));
@@ -288,7 +281,11 @@ class GiftedMessenger extends Component {
     this._visibleRows = visibleRows;
   }
 
-  onChangeText(text) {
+  onChange(event) {
+      this.onChangeText(event.nativeEvent.text, event.nativeEvent.contentSize.height);
+  }
+
+  onChangeText(text, textInputHeight = 35) {
     this.setState({
       text,
       disabled: text.trim().length <= 0
@@ -297,7 +294,12 @@ class GiftedMessenger extends Component {
     if (text === '') {
         this.setState({
           textInputHeight: 35,
-          height: this.listViewMaxHeight,
+          textInputMarginTop: 0,
+        });
+    } else {
+        this.setState({
+          textInputHeight: 35 + textInputHeight - 19,
+          textInputMarginTop: 19 - textInputHeight // 19 is the height of one line
         });
     }
 
@@ -575,14 +577,21 @@ class GiftedMessenger extends Component {
     }
     if (this.props.hideTextInput === false) {
       return (
-        <View style={[this.styles.textInputContainer, {height: Math.max((Platform.OS === 'ios') ? 50 : 60, this.state.textInputHeight)}]}>
+        <View style={[
+            this.styles.textInputContainer,
+            {
+              marginTop: Math.max(this.state.textInputMarginTop, (Platform.OS === 'ios') ? -100 + 35 : -120 + 35),
+              ...(Platform.OS === 'android' ? { paddingBottom: 50 } : {})
+            }
+          ]}
+        >
           {this.props.leftControlBar}
           <TextInput
-            style={[this.styles.textInput, {height: Math.max(35, this.state.textInputHeight)}]}
+            style={[this.styles.textInput, {height: Math.min((Platform.OS === 'ios') ? 100 : 120, this.state.textInputHeight || 35)}]}
             placeholder={this.props.placeholder}
             multiline={true}
             placeholderTextColor={this.props.placeholderTextColor}
-            onChangeText={this.onChangeText}
+            onChange={this.onChange}
             value={this.state.text}
             autoFocus={this.props.autoFocus}
             returnKeyType={this.props.submitOnReturn ? 'send' : 'default'}
