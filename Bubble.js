@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#007aff',
   },
   bubbleCenter: {
-    backgroundColor: '#007aff',
+    backgroundColor: '#eeeeee',
     alignSelf: 'center',
+    width: Dimensions.get('window').width - 10,
   },
   bubbleError: {
     backgroundColor: '#e01717',
